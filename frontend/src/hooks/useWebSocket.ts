@@ -1,11 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 
-const useWebSocket = (reconnectTrigger = 0) => {
+const useWebSocket = ( reconnectTrigger = 0 ) => {
   const socketRef = useRef<WebSocket | null>(null);
   const [isConnected, setIsConnected] = useState(false);
-  const [lastPing, setLastPing] = useState<number>(0);
+  // const [lastPing, setLastPing] = useState<number>(0);
   const [error, setError] = useState<string | null>(null);
 
+
+  console.log("reconnectTrigger is ==>", reconnectTrigger);
   useEffect(() => {
     if (socketRef.current) {
       socketRef.current.close();
@@ -24,12 +26,6 @@ const useWebSocket = (reconnectTrigger = 0) => {
         setIsConnected(true);
         setError(null);
         socketRef.current?.send("Hello from React Client!");
-      };
-
-      socketRef.current.onmessage = (event) => {
-        if (event.data === "ping") {
-          setLastPing(Date.now());
-        }
       };
 
       socketRef.current.onclose = () => {
@@ -54,7 +50,7 @@ const useWebSocket = (reconnectTrigger = 0) => {
     };
   }, [reconnectTrigger]);
 
-  return { isConnected, lastPing, error };
+  return { isConnected, error };
 };
 
 export default useWebSocket;
