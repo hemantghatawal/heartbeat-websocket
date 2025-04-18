@@ -1,0 +1,30 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+.logo {
+  width: 100px;
+  transition: all 0.5s ease-in-out;
+}
+
+.heart-beat {
+  animation: beat 1s infinite;
+  filter: none;
+}
+
+.heart-fade {
+  animation: none;
+  filter: grayscale(100%) brightness(70%);
+}
+
+
+@keyframes beat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
