@@ -6,6 +6,5 @@ A full-stack WebSocket project built with **TypeScript**, **React (Vite)**, and 
 
 - 🔄 Real-time WebSocket communication with heartbeat (ping-pong)
 - 📡 WebSocket server using Express and ws
-- 🔧 Reconnection logic with frontend detection
 - 🧩 Offline support using Service Worker (PWA enabled)
 - 🌐 Deployed on Render 
