@@ -24,7 +24,7 @@ app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });
 
-const socketServer = new WebSocketServer({ noServer: true });
+const socketServer = new WebSocketServer({port: 8080});
 let currentClient: WebSocket | null = null;
 
 socketServer.on("connection", (ws: WebSocket) => {
