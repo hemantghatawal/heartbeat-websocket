@@ -17,7 +17,7 @@ const useWebSocket = (reconnectTrigger = 0) => {
         return;
       }
 
-      socketRef.current = new WebSocket(import.meta.env.VITE_WS_URL);
+      socketRef.current = new WebSocket("ws://localhost:8080");
 
       socketRef.current.onopen = () => {
         console.log("Connected to WebSocket server");
